@@ -144,3 +144,4 @@ debug*
 pretrained_models/
 openvino_models/
 assets/demo/results
+results/
