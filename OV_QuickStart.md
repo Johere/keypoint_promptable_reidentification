@@ -9,7 +9,7 @@ with inference and performance benchmarking on **CPU / NPU / GPU**.
 ## 1. Environment setup
 
 ```bash
-git clone https://github.com/VlSomers/keypoint_promptable_reidentification ~/keypoint_promptable_reidentification
+git clone -b dev/ov https://github.com/Johere/keypoint_promptable_reidentification.git ~/keypoint_promptable_reidentification
 cd ~/keypoint_promptable_reidentification
 
 python3 -m venv ~/python3-venv/kpr-reid
@@ -155,6 +155,11 @@ Measured on the reference platform (Intel Core Ultra X7 358H, OpenVINO 2026.1),
 | NPU | fp16-int8 | 44.20 | 22.62 | 35.6% / 39.0% | 81.1% / 85.0% | 14.86 |
 | GPU | fp16 | **63.85** | **15.66** | 79.6% / 80.0% | — | 15.09 |
 | GPU | fp16-int8 | 63.62 | 15.72 | 79.8% / 82.0% | — | 15.03 |
+
+> **Note:** `cpu_pct` is whole-machine utilization (0–100% across all 16 cores) and reflects
+> host-side **data preprocessing**, not the model math (which runs on the GPU/NPU). The faster
+> the device, the more often the CPU must preprocess, so the GPU run shows the highest CPU% —
+> the pipeline is preprocessing-bound on this small demo, not device-bound.
 
 ### Summary CSV columns
 
