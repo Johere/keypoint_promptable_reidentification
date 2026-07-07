@@ -141,4 +141,6 @@ pretrained_models/
 debug*
 /.idea/
 /configs_user/
-!/pretrained_models/
+pretrained_models/
+openvino_models/
+assets/demo/results

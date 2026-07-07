@@ -313,6 +313,26 @@ For instance, for the Occluded-PoseTrack ReID dataset with the SOLIDER-based KPR
 Configuration files for other datasets and pretraining weights are available under `configs/kpr/`.
 Make sure the `model.load_weights` in these `yaml` config files points to the pre-trained weights you just downloaded with [above instructions](https://github.com/VlSomers/person-reid/tree/dev-vlad?tab=readme-ov-file#download-the-pre-trained-models). 
 
+### OpenVINO 2026.1 inference
+KPR can also be exported to OpenVINO IR and run with the demo data. The default OpenVINO demo model is FP16; FP16-INT8 uses NNCF post-training quantization with the demo samples as calibration data.
+
+```bash
+pip install -r requirements.txt
+python tools/convert_kpr_openvino.py --precision all
+python demo-ov.py
+```
+
+The conversion command writes:
+- `openvino_models/kpr_fp16/kpr.xml`
+- `openvino_models/kpr_fp16_int8/kpr.xml`
+
+Run a specific OpenVINO model or device with:
+
+```bash
+python demo-ov.py --model openvino_models/kpr_fp16_int8/kpr.xml --device CPU
+python demo-ov.py --precision fp16-int8
+```
+
 ### Training
 The training configs for five datasets (Occluded-PoseTrack-ReID, Occluded-Duke, Market-1501, Occluded-ReID and Partial-ReID) are provided in the `configs/kpr/` folder. 
 A training procedure can be launched with:

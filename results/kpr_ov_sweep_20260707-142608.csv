@@ -1,0 +1,7 @@
+device,batch_size,model_input,model_output,fps,latency_ms_avg,cpu_pct_avg,cpu_pct_max,npu_pct_avg,npu_pct_max,mem_used_gib_max
+openvino:CPU:fp16,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,7.0734,141.3732,28.75%,32.0%,0.0%,0.0%,14.57
+openvino:CPU:fp16-int8,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,15.5667,64.2386,36.4167%,41.0%,0.0%,0.0%,14.64
+openvino:NPU:fp16,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,58.3455,17.1377,47.0%,49.0%,73.9167%,80.0%,14.9
+openvino:NPU:fp16-int8,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,44.2021,22.6217,35.5833%,39.0%,81.0833%,85.0%,14.86
+openvino:GPU:fp16,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,63.8525,15.6597,79.5833%,80.0%,0.0%,0.0%,15.09
+openvino:GPU:fp16-int8,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,63.6217,15.7165,79.75%,82.0%,0.0%,0.0%,15.03

@@ -39,7 +39,15 @@ SMALL_FONSCALE = 0.7
 SMALL_THICK = 1
 MEDIUM_FONSCALE = 1.5
 MEDIUM_THICK = 2
-cmap = matplotlib.cm.get_cmap('hsv')
+
+
+def _get_cmap(name):
+    if hasattr(matplotlib, "colormaps"):
+        return matplotlib.colormaps.get_cmap(name)
+    return matplotlib.cm.get_cmap(name)
+
+
+cmap = _get_cmap('hsv')
 BP_COLORS = [(153, 153, 255), (204, 153, 255), (255, 255, 153), (153, 255, 204), (153, 255, 153), (153, 255, 204), (153, 255, 255), (153, 204, 255), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]
 
 

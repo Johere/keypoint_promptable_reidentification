@@ -1,0 +1,2 @@
+device,batch_size,model_input,model_output,fps,latency_ms_avg,cpu_pct_avg,cpu_pct_max,npu_pct_avg,npu_pct_max,mem_used_gib_max
+openvino:NPU:fp16-int8,1,images:1x3x256x128;prompt_masks:1x10x256x128,embeddings:1x9x512;visibility_scores:1x9;parts_masks:1x9x64x32,21.9445,45.5682,60.8333,83.0,51.1667,85.0,43.97

@@ -234,7 +234,7 @@ class KPR(nn.Module):
         if (self.training and self.training_binary_visibility_score) or (not self.training and self.testing_binary_visibility_score):
             pixels_parts_predictions = pixels_parts_probabilities.argmax(dim=1)  # [N, Hf, Wf]
             pixels_parts_predictions_one_hot = F.one_hot(pixels_parts_predictions, self.parts_num + 1).permute(0, 3, 1, 2)  # [N, K+1, Hf, Wf]
-            parts_visibility = pixels_parts_predictions_one_hot.amax(dim=(2, 3)).to(torch.bool)  # [N, K+1]
+            parts_visibility = pixels_parts_predictions_one_hot.to(spatial_features.dtype).amax(dim=(2, 3))  # [N, K+1]
         else:
             parts_visibility = pixels_parts_probabilities.amax(dim=(2, 3))  # [N, K+1]
         background_visibility = parts_visibility[:, 0]  # [N]

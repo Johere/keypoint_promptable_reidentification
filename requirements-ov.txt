@@ -1,0 +1,5 @@
+# pip install -r requirements.txt
+
+# added for OpenVINO export/inference
+openvino==2026.1.0
+nncf
